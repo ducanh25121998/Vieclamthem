@@ -1,0 +1,64 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+    <%- include partials/Admin/header.ejs%>
+<body>
+    <%- include partials/Admin/menu.ejs%>
+    <div class="all-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="logo-pro">
+                        <a href="index"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-advance-area">
+            <%- include partials/Admin/start.ejs%>
+            <!-- Mobile Menu end -->
+            <div class="breadcome-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list single-page-breadcome">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="breadcome-heading">
+                                            <form role="search" class="sr-input-func">
+                                                <input type="text" placeholder="Search..." class="search-int form-control">
+                                                <a href="#"><i class="fa fa-search"></i></a>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <ul class="breadcome-menu">
+                                            <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                            </li>
+                                            <li><span class="bread-blod">Pdf Viewer</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pdf-viewer-area mg-b-15">
+            <div class="container-fluid">
+                <div style="text-align: center;" class="row">
+                    <%result.forEach(function(item){%>
+                          <embed src="public/upload/<%=item.local.FileUser%>" width="700" height="450" >
+                    <%})%>
+                </div>
+            </div>
+        </div>
+        <%- include partials/Admin/end.ejs%>
+    </div>
+
+    <%- include partials/Admin/script.ejs%>
+</body>
+
+</html>

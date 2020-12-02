@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div  class="container-fluid px-md-4" >
+      <a style="width: min-content;"  class="navbar-brand" href="/"><img style="width: 20%; border-radius:10px;" src="public/upload/VLT.png"> VIỆC LÀM THÊM</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> TUỲ CHỌN
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="/Home" class="nav-link">TRANG CHỦ</a></li>
+          <%if(user.local.TypeAccount== "NGƯỜI TÌM VIỆC"){%>
+          <li class="nav-item"><a href="browsejobs" class="nav-link">TÌM VIỆC LÀM</a></li>
+          <li class="nav-item"><a href="blog" class="nav-link">VIỆC LÀM</a></li>
+          <%}%>
+          <%if(user.local.TypeAccount== "NHÀ TUYỂN DỤNG"){%>
+          <li class="nav-item"><a href="candidates" class="nav-link">TÌM ỨNG VIÊN</a></li>
+          <%}%>
+          
+          <li class="nav-item"><a href="contact" class="nav-link">LIÊN HỆ</a></li>
+          <%if(user.local.TypeAccount== "NGƯỜI TÌM VIỆC"){%>
+            <li class="nav-item cta mr-md-1"><a href="/new-profile" class="nav-link">Cá nhân</a></li>
+            <%}%>
+          <%if(user.local.TypeAccount== "NHÀ TUYỂN DỤNG"){%>
+          <li class="nav-item cta mr-md-1"><a href="/new-post" class="nav-link">Tạo tin tuyển dụng</a></li>
+          <%}%>
+          <%if(user){%>
+          <li class="nav-item cta cta-colored"><a href="/profile" class="nav-link">Thông tin</a></li>
+          <li class="nav-item cta mr-md-1"><a href="/logout" class="nav-link">Logout</a></li>
+            <%}else{%>
+              <li class="nav-item cta cta-colored"><a href="/login" class="nav-link">Đăng nhập</a></li>
+            <%}%>
+        </ul>
+      </div>
+    </div>
+</nav>

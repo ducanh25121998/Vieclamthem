@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include partials/Client/header.ejs%>
+  <body>
+  	<div class="hero-wrap">
+      <%- include partials/Client/category.ejs%>
+      </br>
+      </br>
+      </br>
+      </br>
+      <div style="height: 12%;top:3%" class="overlay"></div>
+      <%- include partials/Client/silder.ejs%>
+      </div>
+  <h3 class="title-comm"><span class="title-holder">TẤT CẢ VIỆC LÀM TÀI VIỆC LÀM THÊM</span></h3>
+  <%- include partials/Client/seach.ejs%>
+		<section class="ftco-section">
+      <div class="container">
+        <div class="row d-flex">
+          <%datajob.forEach(function(item){%>
+          <div class="col-md-3 d-flex ftco-animate">
+            <div class="blog-entry align-self-stretch">
+              <a href="/blog-single&idpost=<%=item._id%>" class="block-20" style="border-radius: 15px;background-size:contain ;width: 250px;
+                height: 250px;background-image: url('public/upload/<%=item.ImageCompany%>');">
+              </a>
+              <div class="text mt-3">
+              	<div class="meta mb-2">
+                  <div><a href="#" ><%=item.TimecreatPostHour%></a></div>
+                  <div><a href="#" ><%=item.TimecreatPostDay%></a></div>      
+                </div>
+                <h3 class="heading"><a href="/blog-single&idpost=<%=item._id%>"><%=item.NameJob%></a></h3>
+              </div>
+            </div>
+   
+          </div> 
+        
+          <%})%>
+        </div>
+        <div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+                <ul id="item">
+              </ul>
+            </div>
+          </div>
+        </div>
+        <script>
+        var cars = "<%=sltht%>";
+        var pagesize = "<%=pagesize%>";
+        var i;
+        $("#item").append(`<li ><a href="/blog?page=${1}&pagesize=${pagesize}">Start</a></li>`)
+        for (i = 1; i <= cars; i++) {
+          $("#item").append(`<li ><a href="/blog?page=${i}&pagesize=${pagesize}">${i}</a></li>`) 
+        }
+        $("#item").append(`<li ><a href="/blog?page=${cars}&pagesize=${pagesize}">End</a></li>`)
+        </script>
+
+      </div>
+    </section>
+    <%- include partials/Client/list.ejs%>
+    <%- include partials/Client/target.ejs%>
+    <%- include partials/Client/footer.ejs%>
+    <%- include partials/Client/style.ejs %>
+  </body>
+</html>

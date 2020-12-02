@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include partials/Client/header.ejs%>
+  <body>
+    <div class="hero-wrap">
+      <%- include partials/Client/category.ejs%>
+      </br>
+      </br>
+      </br>
+      </br>
+      <div style="height: 12%;top:3%" class="overlay"></div>
+      <%- include partials/Client/silder.ejs%>
+      </div>
+		<section class="ftco-section contact-section bg-light">
+      <div class="container">
+        <div class="row d-flex mb2-5 contact-info">
+          <div class="col-md-12 mb-4">
+            <h3 class="title-comm"><span class="title-holder"><%=title%></span></h3>
+          </div>
+          <div class="w-100"></div>
+          <div class="col-md-3">
+            <p><span>ĐỊA CHỈ:</span>TẦNG 1& 2 TOÀ NHÀ PVL LINH TÂY TOWER PHƯỜNG LINH TÂY QUẬN THỦ ĐỨC</p>
+          </div>
+          <div class="col-md-3">
+            <p><span>LIÊN HỆ:</span> <a href="tel://+84933412867">0933.412.867</a>ĐỨC ANH</p>
+          </div>
+          <div class="col-md-3">
+            <p><span>EMAIL:</span> <a href="mailto:anh.le@galaxydr.com.vn">anh.le@galaxydr.com.vn</a></p>
+          </div>
+          <div class="col-md-3">
+            <p><span>Website</span> <a href="#">yoursite.com</a></p>
+          </div>
+        </div>
+        <div class="row block-9">
+          <div class="col-md-6 order-md-last d-flex">
+            <form action="#" class="bg-white p-5 contact-form">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Name">
+              </div>
+              <div class="form-group">
+                <textarea name="editor1" id="editor1"  class="ckeditor"></textarea>
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+              </div>
+              <script>
+ 
+                CKEDITOR.replace( 'editor1' );
+      
+            </script>
+            </form>
+          
+          </div>
+          <div class="col-md-6 d-flex">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.3332518637576!2d106.75671561458061!3d10.862237960574664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175278fffff4659%3A0x5e5db99c070afa8f!2sChung%20C%C6%B0%20Linh%20T%C3%A2y%20Tower!5e0!3m2!1svi!2s!4v1605592335610!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>          
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    <%- include partials/Client/style.ejs %>
+    <%- include partials/Client/footer.ejs%>
+    <%- include partials/Client/style.ejs %>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include partials/Client/header.ejs%>
+  <body>
+    <div class="hero-wrap">
+      <%- include partials/Client/category.ejs%>
+      <div style="height: 12%;top:3%" class="overlay"></div>
+      </br>
+      </br>
+
+      <%- include partials/Client/silder.ejs%>
+      </div>
+    <h3 class="title-comm"><span class="title-holder">THÔNG TIN CHI TIẾT VIỆC LÀM</span></h3>
+		<section style="margin-top: -10%;" class="ftco-section ftco-degree-bg">
+      <div class="container">
+       
+        <div class="row">
+          <% listjobs.forEach(function(item){%>
+          <div  class="col-md-8 ftco-animate" >
+            <h2 class="mb-3 mt-5">I. CHI TIẾT VIỆC LÀM</h2>
+            <h2 class="mb-3"><%=item.NameJob%></h2>
+            <p class="mb-3"><%=item.loaihinh%></p>
+            <p style="white-space : pre-wrap;"><%- item.Detail -%></p>
+            <p style="text-align: center;">
+              <img style="width: 50%;" src="public/upload/<%=item.ImageCompany%>" alt="" class="img-fluid">
+            </p>
+            <h2 class="mb-3 mt-5">II.NHÀ TUYỂN DỤNG</h2>
+            <p style="white-space : pre-wrap;"><%- item.DetailCompany -%></p>
+            <p>
+              <img src="public/upload/galaxydr.jpg" alt="" class="img-fluid">
+            </p>
+          </div> 
+          <div class="col-md-4 pl-md-5 sidebar ftco-animate">
+            <div class="sidebar-box">
+              <form action="#" class="search-form">
+                <div class="form-group">
+                  <span class="icon icon-search"></span>
+                  <input type="text" class="form-control" placeholder="Tìm việc làm tương tự">
+                </div>
+              </form>
+            </div>
+            <div class="sidebar-box ftco-animate">
+              <div class="categories">
+                <h3 class="heading-3">THÔNG TIN LIÊN HỆ</h3>
+                <li>CÔNG TY :<span>  <%=item.Namecompany%> </span></li>
+                <li>LIÊN HỆ :<span>  <%=item.Phone%> </span></li>
+                <li>EMAIL : <span> <%=item.Email%> </span></li>
+                <li>ĐỊA CHỈ : <span><%=item.Address%> </span></li>
+                <li>NGÀY ĐĂNG : <span> <%=item.TimecreatPostDay%> </span></li>
+              </div>
+              <%if(user){ %>
+                <%if(user.local.TypeAccount=="NGƯỜI TÌM VIỆC"){%>
+                  <a href="/ungtuyen=<%=item.id%>&<%=user._id%>" class="btn btn-primary py-2">Ứng tuyển ngay</a>
+                  <%}%>
+                <%}else{%>
+                  <a href="/dangnhap" class="btn btn-primary py-2">Ứng tuyển ngay</a>
+                <%}%>
+            </div>
+            
+            <%})%>
+            <div class="sidebar-box ftco-animate">
+              <h3 class="heading-3">VIỆC LÀM LIÊN QUAN</h3>
+              <%datajobRelatedto.forEach(function(item){%>
+                <div class="block-21 mb-4 d-flex">
+                  <a href="/blog-single&idpost=<%=item._id%>" class="blog-img mr-4" style="background-size:contain ;background-image: url(public/upload/<%=item.ImageCompany%>);"></a>
+                  <div class="text">
+                    <h3 class="heading"><a href="/blog-single&idpost=<%=item._id%>"><%=item.NameJob%></a></h3>
+                    <div class="meta">
+                      <i ></i>
+                      <div><a href="#"><span class="fas fa-bars"></span> <%=item.TimecreatPostHour%></a></div>
+                      <div><a href="#"><span class="icon-calendar"></span> <%=item.TimecreatPostDay%></a></div>
+                      <div><a href="#"><span class="icon-chat"></span><%=item.linhvuc%></a></div>
+                    </div>
+                  </div>
+                </div>
+              <%})%>
+            </div>
+
+            <div class="sidebar-box ftco-animate">
+              <h3 class="heading-3">TỪ KHOÁ</h3>
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">VIỆC LÀM</a>
+                <a href="#" class="tag-cloud-link">TUYỂN DỤNG</a>
+                
+              </div>
+            </div>
+          </div>
+
+        </div>
+        
+      </div>
+    </section> <!-- .section -->
+    <%- include partials/Client/style.ejs %>
+
+      <%- include partials/Client/footer.ejs %>  
+  </body>
+</html>

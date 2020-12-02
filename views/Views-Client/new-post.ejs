@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include partials/Client/header.ejs -%>
+  <link href="https://cdn.jsdelivr.net/npm/froala-editor@3.1.0/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+  <body>
+    <div class="hero-wrap">
+      <%- include partials/Client/category.ejs%>
+      </br>
+      </br>
+      </br>
+      </br>
+      <div style="height: 12%;top:3%" class="overlay"></div>
+      <%- include partials/Client/silder.ejs%>
+      </div>
+    <h3 class="title-comm"><span class="title-holder">ĐĂNG TIN TUYỂN DỤNG</span></h3>
+
+    <!-- END nav -->
+		<section class="ftco-section bg-light">
+      <divclass="container">
+        <div class="row">
+          <div style="margin: 15%;margin-top: 0%;" class="col-md-12 col-lg-8 mb2-5">
+           <form action="/post-new-job" method="post" class="p-5 bg-white formrun" enctype="multipart/form-data">
+            <div class="alert alert-success" role="alert" id="loginAlert">
+              <p style="text-align: center;border-radius: 15px;margin: 20px;">Đã tạo bài tuyển dụng</p>
+            </div>
+           <script>
+            $('#loginAlert').hide();
+            const urlParams = new URLSearchParams(window.location.search);
+            const myParam = urlParams.get('error');
+            if(myParam == "Incorrect_Credential") {
+                $('#loginAlert').show();
+           }
+            </script>
+           <style>
+             .title-comm {
+    color: #fff;
+    font-size: 18px;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    background-color: #fff;
+    text-align: center;
+}
+ 
+h3.title-comm:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin-top: 0;
+    border-top: 2px solid #d0d2d3;
+    z-index: 1;
+    display: block;
+}
+ 
+.title-comm .title-holder {
+    min-width: 350px;
+    height: 45px;
+    background-color: #56bbe7;
+    height: auto;
+    line-height: 45px;
+    padding: 0px 20px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    display: inline-block;
+    min-width: 280px;
+}
+ 
+.title-holder:before {
+    content: "";
+    position: absolute;
+    right: -15px;
+    border-width: 0px;
+    bottom: 0px;
+    border-style: solid;
+    border-color: #5c9efe transparent;
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 23px solid transparent;
+    border-bottom: 22px solid transparent;
+    border-left: 15px solid #56bbe7;
+}
+ 
+.title-holder:after {
+    content: "";
+    position: absolute;
+    left: -15px;
+    border-width: 0px;
+    bottom: 0px;
+    border-style: solid;
+    border-color: #5c9efe transparent;
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 23px solid transparent;
+    border-bottom: 22px solid transparent;
+    border-right: 15px solid #56bbe7;
+}
+           </style>
+           </br>
+            <div class="row form-group">
+              <div class="col-md-12 mb-3 mb-md-0">
+                <label class="font-weight-bold" for="fullname">Lĩnh Vực</label>
+                <select name="linhvuc" id="linhvuc" class="form-control">
+                  <option value="Chưa chọn lĩnh vực">---Chọn---</option>
+                  <option value="Giáo Dục">Giáo Dục</option>
+                  <option value="Bán Hàng">Bán Hàng</option>
+                  <option value="Công nghệ thông tin">Công nghệ thông tin</option>
+                  <option value="Du lịch | Nhà hàng | Khách sạn">Du lịch | Nhà hàng | Khách sạn</option>
+                  <option value="Kinh Doanh">Kinh Doanh</option>
+                  <option value="Parttime">Parttime</option>
+                  <option value="Model">Model </option>
+                  <option value="Ngân Hàng | Tài chính">Ngân Hàng | Tài chính</option>
+                  <option value="Kế toán | Kiểm toán">Kế toán | Kiểm toán</option>
+                  <option value="Hành chính | Nhân sự">Hành chính | Nhân sự</option>
+                  <option value="Bảo hiểm">Bảo hiểm</option>
+                  <option value="Tư vấn | Chăm sóc khách hàng">Tư vấn | Chăm sóc khách hàng</option>
+                </select>
+              </div>
+            </div>
+            <div class="row form-group"  data-formrun-class-if-success="has-success" data-formrun-class-if-error="has-danger" data-formrun-target="Namejob">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="Namejob">Tên công việc</label>
+                  <input type="text" name="Namejob" id="Namejob" class="form-control" placeholder="eg. Professional UI/UX Designer"
+                  data-formrun-required data-formrun-class-if-success="form-control-success" data-formrun-class-if-error="form-control-danger">
+                  <div class="text-danger" data-formrun-show-if-error="Namejob">
+                    <svg width="1.0625em" height="1em" viewBox="0 0 17 16" 
+                    class="bi bi-exclamation-triangle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 5zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                    </svg>
+                    không bỏ trống</div>
+                </div>
+            </div>
+            <div class="row form-group mb2-5" data-formrun-class-if-success="has-success" data-formrun-class-if-error="has-danger" data-formrun-target="Namecompany">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="Namecompany">Tên công ty</label>
+                  <input type="text" name="Namecompany" id="Namecompany" class="form-control" placeholder="eg. Facebook, Inc." data-formrun-required data-formrun-class-if-success="form-control-success" data-formrun-class-if-error="form-control-danger">
+                  <div class="text-danger" data-formrun-show-if-error="Namecompany">
+                    <svg width="1.0625em" height="1em" viewBox="0 0 17 16" 
+                    class="bi bi-exclamation-triangle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 5zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                    </svg>
+                    không bỏ trống</div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                <label class="font-weight-bold" for="fullname">Hình thức công việc</label>
+                <select name="loaihinh" id="loaihinh" class="form-control">
+                  <option value="Chưa chọn"> ---Chọn---</option>
+                  <option value="Toàn Thời Gian">FULLTIME</option>
+                  <option value="Bán Thời Gian">PARTTIME</option>
+                  <option value="Tự Do">Tự Do</option>
+                  <option value="Thực tập sinh">Thực tập sinh</option>
+                  <option value="Thời vụ">Thời vụ</option>
+                </select>
+                </div>
+            </div>
+            <div class="row form-group">
+              <div class="col-md-12 mb-3 mb-md-0">
+                <label class="font-weight-bold" for="fullname">Mô tả chi tiết công việc</label>
+                <textarea style="white-space : pre-wrap; "cols="30" id="edit" name="DetailJob" rows="5" data-sample-short></textarea>
+              </div>
+              <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.1.0/js/froala_editor.pkgd.min.js"></script>
+              <script>
+                new FroalaEditor('#edit', {
+                  imageUploadURL: 'image_upload',
+                  imageUploadParams: {
+                    id: 'my_editor'
+                  },
+                  fileUploadURL: '/upload_file',
+                    fileUploadParams: {
+                      id: 'my_editor'
+                    },
+                })
+              </script>
+            </div>
+            <div class="row form-group" data-formrun-class-if-success="has-success" data-formrun-class-if-error="has-danger" data-formrun-target="hinhanhtin" >
+                    <div class="col-md-12 mb-3 mb-md-0">
+                         <label id="label" class="font-weight-bold" for="hinhanhtin">Thêm vào tin tuyển dụng : </label>
+                          <input name="hinhanhtin" type='file' id="imgInpt" 
+                          data-formrun-required data-formrun-class-if-success="form-control-success" 
+                          data-formrun-class-if-error="form-control-danger"
+                          class="inputfile" data-multiple-caption="{count} files selected" multiple />
+                          <label for="imgInpt"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-images" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M12.002 4h-10a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1zm-10-1a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-10zm4 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                            <path fill-rule="evenodd" d="M4 2h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1v1a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2h1a1 1 0 0 1 1-1z"/>
+                          </svg>  
+                          Ảnh/Video </label>
+                          <style>
+                            .inputfile {
+                            width: 0.1px;
+                            height: 0.1px;
+                            opacity: 0;
+                            overflow: hidden;
+                            position: absolute;
+                            z-index: -1;
+                          }
+                          .inputfile + label {
+                              border: 1px solid #206dfb !important;
+                              border-color: #206dfb  ;
+                              color: #206dfb !important;
+                              cursor: pointer;
+                              -webkit-border-radius: 10px;
+                              -moz-border-radius: 10px;
+                              -ms-border-radius: 10px;
+                              border-radius: 5px;
+                              -webkit-box-shadow: none !important;
+                              box-shadow: none !important;
+                              
+                          }
+                          .inputfile:focus + label,
+                          .inputfile + label:hover {
+                              background-color: white;
+                          }
+                          </style>
+                          <script>
+                            var inputs = document.querySelectorAll( '.inputfile' );
+                            Array.prototype.forEach.call( inputs, function( input )
+                            {
+                              var label	 = input.nextElementSibling,
+                                labelVal = label.innerHTML;
+
+                              input.addEventListener( 'change', function( e )
+                              {
+                                var fileName = '';
+                                if( this.files && this.files.length > 1 )
+                                  fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+                                else
+                                  fileName = e.target.value.split( '\\' ).pop();
+
+                                if( fileName )
+                                  label.querySelector( 'span' ).innerHTML = fileName;
+                                else
+                                  label.innerHTML = labelVal;
+                              });
+                            });
+                          </script>
+                          <div class="text-danger" data-formrun-show-if-error="hinhanhtin">
+                            <svg width="1.0625em" height="1em" viewBox="0 0 17 16" 
+                            class="bi bi-exclamation-triangle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 5zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                            </svg>Chưa chọn hình ảnh</div>
+                            </br>
+                            <img  style="width: 30%;margin-left: 20%;border-radius: 15px;" id="blahs" src="#" alt="" />
+                          </br>
+                         </div> 
+                         
+            </div>
+            <input id="submit" type="submit" value="Đăng bài" class="btn btn-primary pull-xs-right" data-formrun-error-text="Thiếu thông tin" data-formrun-submitting-text="Đợi tí ba..."/>
+          </div>
+          <script>
+           
+          function readURL(input) {
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function(e) {
+            $('#blahs').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
+          }
+          }
+          $("#imgInpt").change(function() {
+          readURL(this);
+          });          
+        </script>
+        </form>
+        </div>
+      </div>
+    </section>
+    <%- include partials/Client/style.ejs %>
+    <%- include partials/Client/target.ejs%>
+    <%- include partials/Client/footer.ejs %>
+  </body>
+</html>

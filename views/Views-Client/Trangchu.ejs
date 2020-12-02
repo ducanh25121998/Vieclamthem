@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <%- include partials/Client/header.ejs%>
+  <body>
+	<div class="hero-wrap">
+		<%- include partials/Client/category.ejs%>
+	</div>
+	<section style="text-align: center;" class="ftco-section bg-light">
+		<%- include partials/Client/silder.ejs%>
+	</section>
+	<h3 class="title-comm"><span class="title-holder">VIỆC LÀM TUYỂN DỤNG GẤP</span></h3>
+	  <section class="ftco-section bg-light">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-9 pr-lg-5">
+							<div class="row" id="list-partner">
+								<%datalistjob.forEach(function(item){%>
+								<div class="col-md-12 ftco-animate" id="partner-item">
+									<div style="border-radius: 10px;" class="job-post-item p-4 d-block d-lg-flex align-items-center">
+										<div class="one-third mb-4 mb-md-0">
+												<div class="job-post-item-header align-items-center">
+														<span class="subadge"><%=item.loaihinh%></span>
+													<h2 class="mr-3 text-black"><a href="/blog-single&idpost=<%=item.IdJob%>"><%=item.NameJob%></a></h2>
+												</div>
+												<div class="job-post-item-body d-block d-md-flex">
+														<div class="mr-3"><span class="icon-layers"></span> <a href="/blog-single&idpost=<%=item.IdJob%>"><%=item.Namecompany%></a></div>
+														<div><span class="icon-my_location"></span><span><%=item.Address%></span></div>
+												</div>
+										</div>
+										<div class="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
+											<%if(user){%>
+											<a href="/ungtuyenjobgood=<%=item.id%>&<%=user._id%>" class="btn btn-primary py-2">Ứng tuyển</a>
+											<%}else{%>
+												<a href="/" class="btn btn-primary py-2">Ứng tuyển</a>
+											<%}%>
+										</div>
+								</div>
+							</div>
+							<%})%>
+							</div>
+		     	 </div>
+							<div class="col-lg-3 sidebar">
+								<%datahot.forEach(function(item){%>
+								<div class="sidebar-box ftco-animate">
+									<a href="#" class="company-wrap" style="height: 120px;border-radius: 10px;width: 230px;background-size: contain;
+										;background-image: url('public/upload/<%=item.ImageCompany%>');"></a>
+										<div class="text p-3">
+											<h3><a href="#"><%=item.Namecompany%></a></h3>
+											<p><span class="number">HOT</span> <span>Xem thêm...</span></p>
+										</div>
+								</div>
+								<%})%>
+							</div>
+				</div>
+			</div>
+		</section>
+	<%- include partials/Client/list.ejs%>
+	<%- include partials/Client/target.ejs%>
+	<%- include partials/Client/footer.ejs %>
+	<%- include partials/Client/style.ejs %>
+  </body>
+</html>

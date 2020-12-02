@@ -1,0 +1,253 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<%- include partials/Admin/header.ejs%>
+
+<body>
+    <!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+    <!-- Start Left menu area -->
+    <%- include partials/Admin/menu.ejs%>
+    <!-- End Left menu area -->
+    <!-- Start Welcome area -->
+    <div class="all-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="logo-pro">
+                        <a href="index"><img class="main-logo" src="public/Admin/img/logo/logo.png" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-advance-area">
+            <!-- Mobile Menu end -->
+            <div class="breadcome-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list single-page-breadcome">
+                                <div class="row">
+                                    <div style="right:200px ;" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <ul class="breadcome-menu">
+                                            <li><a href="/HomeAdmin">Trang chủ</a> <span class="bread-slash">/</span>
+                                            </li>
+                                            <li><span  class="bread-blod">CHỈNH SỬA GIAO DIỆN TRANG CHỦ</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Single pro tab review Start-->
+        <div class="single-pro-review-area mt-t-30 mg-b-15">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="product-payment-inner-st">
+                            <ul id="myTabedu1" class="tab-review-design">
+                                <li class="active"><a href="#description">Việc làm đãi ngộ tốt
+                                </a></li>
+                                <li><a href="#reviews">CTY NỔI BẬT</a></li>
+                                <li><a href="#INFORMATION">Silder Tin tuyển dụng</a></li>
+                            </ul>
+                            <div id="myTabContent" class="tab-content custom-product-edit">
+                                <div class="product-tab-list tab-pane fade active in" id="description">
+                                    <div class="product-status mg-b-15">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <h3>Vị trí hiện tại</h3>
+                                                    <div class="alert alert-success" role="alert" id="loginAlert">
+                                                        <p style="text-align: center;border-radius: 15px;">Thành công</p>
+                                                    </div>
+                                                    <div class="alert alert-danger" role="alert" id="loginAlert2">
+                                                        <p style="text-align: center;border-radius: 15px;">Thất bại</p>
+                                                    </div>
+                                                     <script>  
+                                                     $('#loginAlert2').hide();
+                                                      $('#loginAlert').hide();
+                                                      const urlParams = new URLSearchParams(window.location.search);
+                                                      const myParam = urlParams.get('error');
+                                                      if(myParam == "Incorrect_Credential") {
+                                                          $('#loginAlert').show();
+                                                          $('#loginAlert').hide(4000);
+                                                     }
+                                                     if(myParam == "Incorrect_Credential2"){
+                                                        $('#loginAlert2').show();
+                                                        $('#loginAlert2').hide(4000);
+                                                     }
+                                                      </script>
+                                                    <div class="product-status-wrap drp-lst">
+                                                        <div class="asset-inner">
+                                                            <table >
+                                                                <tr>
+                                                                    <th>Tên Công Ty</th>
+                                                                    <th>Tên công việc</th>
+                                                                    <th>Email</th>
+                                                                    <th>Vị trí</th>
+                                                                    <th>Tuỳ chỉnh<th>
+                                                                </tr>
+                                                                <% jobgood.forEach(function(item){%>
+                                                                <tr >
+                                                                    <td><button class="pd-setting"><%=item.Namecompany%></button></td>
+                                                                    <td>
+                                                                        <%=item.NameJob%>
+                                                                    </td>
+                                                                    <td><%=item.Email%></td>
+                                                                    <td><%=item.STT%></td>
+                                                                    <td>
+                                                                        <a  href="#" data-toggle="tooltip" title="Sửa vị trí tin" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                                        </a>
+                                                                        <a  href="/delete<%=item._id%>" data-toggle="tooltip" title="Xoá" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                                                    </td>
+                                                                </tr>
+                                                                <%})%>
+                                                            </table>
+                                                        </div>
+                                                       
+                                                    </div>
+
+                                                </br>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="breadcome-heading">
+                                                            <form role="search" class="sr-input-func">
+                                                                <input type="text" id="search" placeholder="Tìm tin tuyển dụng..." class="search-int form-control">
+                                                                <a href="#"><i class="fa fa-search" id="search-btn"></i></a>
+                                                            </form>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </br>
+                                                    <div class="product-status-wrap drp-lst">
+                                                        <div class="asset-inner">
+                                                            <table class="list-partner">
+                                                                <tr>
+                                                                    <th>Tên Công Ty</th>
+                                                                    <th>Tên công việc</th>
+                                                                    <th>Email</th>
+                                                                    <th>Logo</th>
+                                                                    <th>Tuỳ chỉnh<th>
+                                                                </tr>
+                                                                <% datalistjob.forEach(function(item){%>
+                                                                <tr   class="partner-item">
+                                                                    <td ><button class="pd-setting"><%=item.Namecompany%></button></td>
+                                                                    <td>
+                                                                        <%=item.NameJob%>
+                                                                    </td>
+                                                                    <td><%=item.Email%></td>
+                                                                    <td><img style="max-width: 100%;" src="public/upload/<%=item.ImageCompany%>" alt="" /></td>
+                                                                    <td>
+                                                                        <a href="/choose-jobgood<%=item._id%>" data-toggle="tooltip" title="Chọn" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                                    </td>
+                                                                </tr>
+                                                                <%})%>
+                                                                
+                                                                <script>
+                                                                    var rows = jQuery('.list-partner .partner-item');
+                                                                    jQuery('#search-btn').click(function() {
+                                                                     var val = jQuery.trim(jQuery('#search').val()).replace(/ +/g, ' ').toLowerCase();
+                                                                     
+                                                                     rows.each(function(){
+                                                                      var itemtxt = jQuery(this).text().replace(/\s+/g, ' ').toLowerCase();
+                                                                      if(itemtxt.indexOf(val) > -1) {
+                                                                        jQuery(this).show();
+                                                                      } else {
+                                                                        jQuery(this).hide();
+                                                                      }
+                                                                     });
+                                                                    }); 
+                                                                   </script>
+                                                            </table>
+                                                        </div>
+                                                        <div class="custom-pagination">
+                                                            <nav aria-label="Page navigation example">
+                                                                <ul class="pagination">
+                                                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                                                </ul>
+                                                            </nav>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-tab-list tab-pane fade" id="reviews">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="review-content-section">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <div class="devit-card-custom">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" placeholder="Email">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="number" class="form-control" placeholder="Phone">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="password" class="form-control" placeholder="Password">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="password" class="form-control" placeholder="Confirm Password">
+                                                            </div>
+                                                            <a href="#!" class="btn btn-primary waves-effect waves-light">Submit</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-tab-list tab-pane fade" id="INFORMATION">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="review-content-section">
+												<div class="row">
+													<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+														<div class="devit-card-custom">
+															<div class="form-group">
+																<input type="url" class="form-control" placeholder="Facebook URL">
+															</div>
+															<div class="form-group">
+																<input type="url" class="form-control" placeholder="Twitter URL">
+															</div>
+															<div class="form-group">
+																<input type="url" class="form-control" placeholder="Google Plus">
+															</div>
+															<div class="form-group">
+																<input type="url" class="form-control" placeholder="Linkedin URL">
+															</div>
+															<button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+														</div>
+													</div>
+												</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include partials/Admin/end.ejs%>
+
+    </div>
+
+    <%- include partials/Admin/script.ejs%>
+</body>
+
+</html>

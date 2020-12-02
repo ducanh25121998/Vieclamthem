@@ -1,0 +1,42 @@
+{
+  "name": "Vieclamthem",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "bcrypt-nodejs": "latest",
+    "body-parser": "~1.15.2",
+    "Buffer": "0.0.0",
+    "ckeditor": "^4.12.1",
+    "connect-flash": "~0.1.1",
+    "connect-multiparty": "^2.2.0",
+    "cookie-parser": "~1.4.3",
+    "ejs": "~2.5.2",
+    "express": "~4.14.0",
+    "express-session": "~1.14.1",
+    "file-manager-js": "^3.1.6",
+    "froala-editor": "^3.2.3",
+    "jquery-captcha": "^2.3.2",
+    "method-override": "~2.3.6",
+    "moment": "^2.29.1",
+    "mongodb-atlas-api-client": "^2.10.0",
+    "mongoose": "~4.13.1",
+    "morgan": "~1.7.0",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.6",
+    "passport": "~0.3.2",
+    "passport-facebook": "~2.1.1",
+    "passport-google-oauth": "^1.0.0",
+    "passport-google-oauth2": "^0.2.0",
+    "passport-local": "~1.0.0",
+    "passport-twitter": "~1.0.4",
+    "path": "^0.12.7",
+    "req-flash": "0.0.3",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "serve-favicon": "^2.5.0",
+    "sha1": "^1.1.1"
+  }
+}
