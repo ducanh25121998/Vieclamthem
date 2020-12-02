@@ -13,7 +13,7 @@ module.exports = {
     },
     'googleAuth' : {
         'clientID'         : '163618400101-kgebgmhbdhv107q84c6foupkhpg83p63.apps.googleusercontent.com',
-        'clientSecret'     : 'T79qaHYmgoPMAB0lMc8HpWQu',
+        'clientSecret'     : 'j6lpcyvYLwLgmLpXy6hVk8Yz',
         'callbackURL'      : 'http://timvieclamthem.cleverapps.io/auth/google/callback'
     }
 
